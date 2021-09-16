@@ -28,7 +28,7 @@ Si l'initialisation de la base de données échoue, il est possible de trouver u
 
 This project was made as part of the Web Language lessons of the Software Engineering Master at the university of Rouen.
 
-This web application allow users to manage project using Kanban boards.
+This web application allows users to manage project using Kanban boards.
 The sources of the application are provided as well as an installation script.
 The application, comments in the code and instructions in the installation scripts are in french only.
 
