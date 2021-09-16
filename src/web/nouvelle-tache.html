@@ -1,0 +1,22 @@
+<html>
+
+  <head>
+  </head>
+
+  <body>
+    <div class="modal" id="modal-projet">
+      <div class="modal-title">Nouvelle tâche</div>
+      <div class=modal-body>
+        <div class="modal-subtitle">Description de la tâche</div>
+        <textarea id="task-desc-input" placeholder='e.g. "Trouver un bon exemple de tâche pour la textarea du modal de création de tâche."' autocomplete="off" spellcheck=false maxlength=255></textarea>
+        <div class="modal-subtitle">Utilisateur</div>
+        <input id="task-user-input" type=text placeholder="e.g. johndoe" autocomplete="off" spellcheck=false maxlength=16>
+        <div class="modal-subtitle">Date limite</div>
+        <input id="task-date-input" type=date>
+        <div id="modal-error"></div>
+        <button class="modal-button" onclick="createTask()">Créer la tâche</button>
+      </div>
+    </div>
+  </body>
+
+<html>

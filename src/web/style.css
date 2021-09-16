@@ -1,0 +1,892 @@
+* {
+  padding : 0;
+  margin  : 0;
+  font-family: 'Work Sans', sans-serif;
+  color: #202020;
+}
+
+body {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  box-sizing: border-box;
+
+  width: 100%;
+  min-height: 100%;
+  background-color: #E5E5E5;
+
+  padding-top: 40px;
+
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: rgba(0,0,0,0);
+  border: none;
+  font-size: 16px;
+}
+
+/*###########################################################################################################
+#                                           STYLE DU HEADER                                                 #
+###########################################################################################################*/
+
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  height: 40px;
+  width: 100%;
+  background-color: #333333;
+
+  color: #EEEEEE;
+  font-size: 16px;
+  line-height: 38px;
+}
+
+nav {
+  float: right;
+}
+
+.nav-button {
+  cursor: pointer;
+  user-select: none;
+
+  height: 40px;
+
+  float: left;
+
+  color: #EEEEEE;
+  margin-right: 20px;
+
+  transition: color 0.1s ease;
+
+}
+
+.nav-button:hover, .nav-button:focus, .nav-button:active {
+  outline: none;
+  color: #44AAFF;
+}
+
+/*###########################################################################################################
+#                                           STYLE DE L'ACCUEIL                                              #
+###########################################################################################################*/
+
+h1 {
+  position: absolute;
+  top: 45vh;
+  left: 50vw;
+
+  transform: translate(-50%, -50%);
+
+  font-size: 72px;
+  text-align: center;
+
+  font-weight: 800;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.bouton-accueil {
+
+  position: absolute;
+  right: 0;
+
+  cursor: pointer;
+  user-select: none;
+
+  height: 60px;
+  width: 160px;
+
+  box-sizing: border-box;
+  border-radius: 5px;
+
+  background-color: #2277FF;
+
+  text-align: center;
+  line-height: 60px;
+  font-weight: 700;
+  color: #EEEEEE;
+
+  transition: transform ease 0.1s;
+}
+
+.bouton-accueil:hover, .bouton-accueil:focus, .bouton-accueil:active {
+  transform: scale(1.05);
+  outline: none;
+}
+
+#bouton-connexion {
+  left: 0;
+  background-color: #EEEEEE;
+  border: 2px #2277FF solid;
+  color: #2277FF;
+}
+
+#bouton-projets {
+  left: calc(50% - 80px);
+}
+
+#accueil-cta {
+  position: absolute;
+
+  top: calc(45vh + 120px);
+  left: 50vw;
+
+  height: 60px;
+  width: 390px;
+
+  transform: translate(-50%, -50%);
+}
+
+/*###########################################################################################################
+#                                          STYLE LISTE DE PROJET                                            #
+###########################################################################################################*/
+
+#liste-projet {
+
+  min-height: calc(100vh - 120px);
+  width: calc(100% - 80px);
+
+  overflow: hidden;
+
+  padding: 40px;
+}
+
+#liste-projet-bar {
+  height: 50px;
+  margin-bottom: 60px;
+}
+
+#title {
+  float: left;
+  font-weight: 800;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 42px;
+}
+
+#bar-boutons {
+  float: right;
+}
+
+.bar-bouton {
+  user-select: none;
+  cursor: pointer;
+  float: left;
+  position: relative;
+
+  margin-top: 10px;
+  height: 39px;
+  width: 39px;
+  background-color: #EEEEEE;
+  border: none;
+  border-radius: 6px;
+
+  line-height: 39px;
+  font-weight: 700;
+  font-size: 29px;
+  color: #707070;
+
+  box-shadow: 0px 10px 16px rgb(10,0,20,0.15);
+
+  transition: color 0.1s ease, background-color 0.1s ease;
+}
+
+#toggle-selection {
+  user-select: none;
+  float: left;
+
+  margin: 10px 20px;
+  height: 39px;
+  width: 117px;
+  background-color: #EEEEEE;
+  border: none;
+  border-radius: 6px;
+
+  box-shadow: 0px 10px 16px rgb(10,0,20,0.15);
+}
+
+.checkbox-selection:first-child {
+  border-radius: 6px 0 0 6px;
+}
+
+.checkbox-selection:last-child {
+  border-radius: 0 6px 6px 0;
+}
+
+.checkbox-selection {
+  cursor: pointer;
+  float: left;
+  position: relative;
+  height: 39px;
+  width: 39px;
+
+  transition: color 0.1s ease, background-color 0.1s ease;
+}
+
+.checkbox-selection:hover, .checkbox-selection:active, .checkbox-selection:focus, .bar-bouton:hover, .bar-bouton:active, .bar-bouton:focus {
+  outline: none;
+  background-color: rgba(34,119,255,0.25);
+  color: #202020;
+}
+
+.checkbox-selection:hover::before, .checkbox-selection:active::before, .checkbox-selection:focus::before, .bar-bouton:hover::before, .bar-bouton:active::before, .bar-bouton:focus::before {
+  position: absolute;
+  content: '';
+
+  top: 100%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+
+  border-bottom: 10px solid #333333;
+
+  overflow: hidden;
+}
+
+.checkbox-selection:hover::after, .checkbox-selection:active::after, .checkbox-selection:focus::after, .bar-bouton:hover::after, .bar-bouton:active::after, .bar-bouton:focus::after {
+  position: absolute;
+  content: attr(tooltip);
+
+  top: 100%;
+  left: 50%;
+
+  transform: translate(-50%, 10px);
+
+  padding: 6px;
+
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  color: #EEEEEE;
+  font-size: 16px;
+  font-weight: 400;
+
+  background-color: #333333;
+  border-radius: 5px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+}
+
+.checkbox-selection > svg, .bar-bouton > svg {
+  margin: 7px;
+  fill: #707070;
+
+  transition: fill 0.1s ease;
+}
+
+.checkbox-selection:hover > svg, .checkbox-selection:active > svg, .checkbox-selection:focus > svg, .bar-bouton:hover > svg, .bar-bouton:active > svg, .bar-bouton:focus > svg {
+  fill: #202020;
+}
+
+.checkbox-selection[checked] {
+  background-color: rgba(34,119,255,0.25);
+}
+
+.checkbox-selection[checked] > svg {
+  fill: #2277FF;
+}
+
+#select-ordre {
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+
+  float: right;
+
+  user-select: none;
+  margin-top: 10px;
+  height: 39px;
+  width: 270px;
+  background-color: #EEEEEE;
+  border: none;
+  border-radius: 6px;
+  line-height: 23px;
+  overflow: hidden;
+
+  box-shadow: 0px 10px 16px rgb(10,0,20,0.15);
+
+  transition: height 0.1s ease, margin-bottom 0.1s ease, box-shadow 0.1s ease;
+}
+
+#select-ordre::after {
+  content: "▼";
+
+  font-size: 12px;
+  color: #2277FF;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 100%;
+}
+
+#select-ordre:focus, #select-ordre:focus-within {
+  height: calc(39px * 7);
+  margin-bottom: calc(-39px * 7);
+
+  outline: none;
+}
+
+#ordre-selected-option {
+  font-weight: 700;
+  color: #2277FF;
+
+  box-sizing: border-box;
+  padding: 8px;
+  height: 39px;
+  width: 270px;
+}
+
+.ordre-option {
+  cursor: pointer;
+  text-align: left;
+
+  box-sizing: border-box;
+  padding: 8px;
+  height: 39px;
+  width: 270px;
+
+  transition: background-color 0.1s ease;
+}
+
+.ordre-option:hover, .ordre-option:focus {
+  outline: none;
+  background-color: rgba(34,119,255,0.25);
+}
+
+#grille-projets {
+  display: grid;
+  width: 100%;
+
+  grid-template-columns: repeat(auto-fit, minmax(572px, 1fr));
+  gap: 20px;
+}
+
+.projet {
+  cursor: pointer;
+  user-select: none;
+
+  padding: 15px;
+
+  border-radius: 8px;
+  background-color: #EEEEEE;
+
+  box-shadow: 0px 10px 16px rgb(10,0,20,0.15);
+
+  overflow: hidden;
+
+  transition: transform ease 0.2s;
+}
+
+.projet-title {
+  font-weight: 800;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.projet-owner {
+  color: #707070;
+  margin-bottom: 16px;
+}
+
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: #C4C4C4;
+  margin-bottom: 20px;
+}
+
+.projet-task-done {
+  color: #2277FF;
+  font-weight: 800;
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 6px;
+}
+
+.projet-task-done::after {
+  content : " tâches terminées";
+  font-weight: 400;
+  color: #707070;
+}
+
+.projet-progress {
+  background-color: #0044EE;
+  height: 16px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 3px;
+
+  margin-bottom: 80px;
+}
+
+.projet-progress-bar {
+  background: #2277FF;
+  height: 16px;
+}
+
+.projet:hover {
+  transform: scale(1.02);
+}
+
+.projet-dates {
+  width: 100%;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.projet-creation {
+  float: left;
+  width: 108px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.projet-creation::before {
+  content: "Date de création : ";
+  font-size: 12px;
+  font-weight: 400;
+  color: #707070;
+}
+
+.projet-derniere-maj {
+  float: right;
+  width: 108px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.projet-derniere-maj::before {
+  content: "Dernière màj : ";
+  font-size: 12px;
+  font-weight: 400;
+  color: #707070;
+}
+
+.project-columns-input {
+  box-sizing: border-box;
+  padding: 10px;
+
+  min-width: 40vw;
+  max-width: 1000px;
+
+  min-height: 220px;
+
+  border-radius: 3px;
+
+  background-color: rgba(0,0,0,0.08);
+
+  margin-bottom: 20px;
+}
+
+.grille-columns-input {
+  display: grid;
+  width: 100%;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 10px;
+
+  max-height: 542px;
+
+  overflow: auto;
+}
+
+.project-column {
+  background-color: #EEEEEE;
+
+  padding: 10px;
+  border-radius: 3px;
+
+  height: 39px;
+
+  font-style: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 39px;
+}
+
+.mandatory-column {
+  margin-left: 10px;
+}
+
+.project-column > input[type="text"] {
+  float: left;
+  width: calc(100% - 26px) !important;
+  margin-bottom: 0px !important;
+}
+
+.project-column-cross{
+  float: right;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 26px;
+
+  line-height: 39px;
+
+  transition: color 0.2s ease;
+}
+
+.project-column-cross::after { content: "×"; }
+
+.project-column-cross:hover, .project-column-cross:focus {
+  color: #EE4455;
+  outline: none;
+}
+
+.add-project-column {
+  cursor: pointer;
+
+  padding: 10px;
+  border-radius: 3px;
+
+  height: 59px;
+
+  border: 2px #707070 dashed;
+
+  color: #707070;
+
+  font-style: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.add-project-column:hover, .add-project-column:focus, .add-project-column:active {
+  background-color: rgba(0,0,0,0.08);
+  color: #202020;
+  border-color: #202020;
+  outline: none;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 35px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #DBDBDB;
+  transition: 0.2s;
+  border-radius: 35px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 25px;
+  width: 25px;
+  left: 5px;
+  bottom: 5px;
+  background-color: #EEEEEE;
+  transition: 0.2s;
+  border-radius: 50%;
+}
+
+input:focus + .slider, input:hover + .slider, input:active + .slider {
+  background-color: #BABABA;
+}
+
+input:checked + .slider {
+  background-color: #2277FF;
+}
+
+input:checked + .slider:before {
+  transform: translateX(25px);
+}
+
+.switch-public {
+  position: relative;
+  height: 35px;
+  margin-bottom: 20px;
+}
+
+.label-switch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 35px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+}
+
+.switch-public > .switch {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/*###########################################################################################################
+#                                             STYLE DU KANBAN                                               #
+###########################################################################################################*/
+
+#nom-kanban-bar {
+  width: calc(100% - 80px);
+  padding: 40px;
+  height: 50px;
+  margin-bottom: 20px;
+
+  overflow: hidden;
+}
+
+.bar-input {
+  float: left;
+  margin: 10px 20px;
+
+  box-shadow: 0px 10px 16px rgb(10,0,20,0.15);
+  border-radius: 6px;
+}
+
+.bar-input > .bar-bouton {
+  margin: 0;
+  border-radius: 0px 6px 6px 0px;
+  float: right;
+
+  box-shadow: none;
+}
+
+.bar-input > input[type=text] {
+  float: left;
+  margin: 0;
+  width: calc(100% - 39px);
+  border-radius: 6px 0px 0px 6px;
+}
+
+#grid {
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: grid;
+
+  padding: 0 40px 40px;
+
+  gap: 10px;
+  grid-auto-columns: max(calc((100vw - 120px)/5), 340px);
+  grid-auto-flow: column;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  height: calc(100vh - 230px);
+}
+
+/* fix pour le probleme de padding avec l'overflow */
+#grid:after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 100%;
+}
+
+.board {
+  position: relative;
+
+  border-radius: 8px;
+  background-color: #EEEEEE;
+
+  box-shadow: 0px 10px 16px rgb(10,0,20,0.15);
+  padding: 15px;
+}
+
+.board-title {
+  font-weight: 800;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.stack {
+  min-height: 90px;
+
+  max-height: 60vh;
+
+  width: calc(100% - 20px);
+
+  padding: 10px 10px 0;
+
+  border-radius: 7px;
+
+  background-color: rgba(0,0,0,0.08);
+
+  transition: background-color ease 0.1s;
+
+  overflow-y: auto;
+}
+
+/* fix pour le probleme de padding avec l'overflow */
+.stack::after {
+  content:"";
+  display: block;
+  height: 10px;
+  width: 100%;
+
+}
+
+.last-stack {
+  background-color: rgba(0,0,0,0.15);
+}
+
+/*###########################################################################################################
+#                                            STYLE DES TACHES                                               #
+###########################################################################################################*/
+
+
+.task {
+  min-height: 60px;
+  width: calc(100% - 20px);
+  padding: 10px;
+
+  margin-bottom: 10px;
+
+  border-radius: 5px;
+
+  background-color: #EEEEEE;
+
+  transition: background-color ease 0.1s;
+}
+
+.task-desc {
+  font-size: 16px;
+  margin-bottom: 10px;
+  min-height: 34px;
+}
+
+.task-user {
+  font-size: 14px;
+  color: #44AAFF;
+}
+
+.task-date {
+  font-size: 14px;
+  color: #707070;
+}
+
+#new-task-button {
+
+  cursor: pointer;
+  user-select: none;
+
+  height: 60px;
+  width: calc(100% - 20px);
+  margin: 5px 10px 5px;
+
+  border-radius: 5px;
+  border: none;
+
+  font-size: 42px;
+  font-weight: 800;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 60px;
+  text-align: center;
+
+  color: #444444;
+
+  transition: background-color ease 0.1s;
+}
+
+.task:last-child {
+  margin-bottom: 0;
+}
+
+.grabbed {
+
+  margin: 0;
+
+  position: absolute;
+  z-index: 100;
+  box-shadow: 0px 6px 20px rgba(10,0,20,0.15);
+
+  pointer-events: none;
+
+  transition: transform ease 0.3s;
+}
+
+.task-placeholder {
+  animation: task-placeholder-in 0.3s normal both;
+  width : 100%;
+}
+
+.first-placeholder {
+  animation: first-placeholder-in 0.3s normal both;
+}
+
+.task-placeholder-out {
+  animation: task-placeholder-out 0.3s normal both;
+}
+
+@keyframes task-placeholder-in {
+    0% { height: 0px;  }
+  100% { height: 60px; }
+}
+
+@keyframes first-placeholder-in {
+    0% { height: 80px;  }
+  100% { height: 60px;   }
+}
+
+@keyframes task-placeholder-out {
+    0% { height: 60px; }
+  100% { height: 0;    }
+}
+
+/*###########################################################################################################
+#                                            STYLE DES MODALS                                               #
+###########################################################################################################*/
+
+.no-scroll {
+    overflow: hidden;
+    height: 100%;
+}
+
+.blur {
+  position: fixed;
+  z-index: 1000;
+
+  top: 0;
+  left: 0;
+
+  height: 100vh;
+  width: 100vw;
+
+  background-color: rgba(0,0,0,0.4);
+
+  animation: anim-blur-in 0.5s normal both;
+}
+
+.blur-out {
+  animation: anim-blur-out 0.4s normal both;
+}
+
+@keyframes anim-blur-in {
+    0% { background-color: rgba(0,0,0,0); }
+  100% { background-color: rgba(0,0,0,0.4); }
+}
+
+@keyframes anim-blur-out {
+    0% { background-color: rgba(0,0,0,0.4); }
+   50% { background-color: rgba(0,0,0,0.4); }
+  100% { background-color: rgba(0,0,0,0); }
+}

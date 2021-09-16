@@ -1,0 +1,33 @@
+<html>
+
+  <head>
+  </head>
+
+  <body>
+    <div class="modal" id="modal-projet">
+      <div class="modal-title">Nouveau projet</div>
+      <div class=modal-body>
+        <div class="modal-subtitle">Nom du projet</div>
+        <input id="project-name-input"type=text placeholder="e.g. Projet de web" autocomplete="off" spellcheck=false maxlength=32>
+        <div class="switch-public">
+          <div class="label-switch left">Projet public</div>
+          <label class="switch right">
+            <input id="project-is-public" type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="modal-subtitle">Colonnes</div>
+        <div class="project-columns-input">
+          <div class="grille-columns-input">
+            <div class="project-column"><div class="mandatory-column">Stories</div></div>
+            <div class="project-column last-column"><div class="mandatory-column">Tâches terminées</div></div>
+            <button class="add-project-column" onclick="addProjectColumn()">+ Ajouter une colonne</button>
+          </div>
+        </div>
+        <div id="modal-error"></div>
+        <button class="modal-button" onclick="createProject()">Créer le projet</button>
+      </div>
+    </div>
+  </body>
+
+<html>
